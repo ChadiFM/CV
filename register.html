@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Register</title>
+    <link rel="stylesheet" href="/app/Vista/css/register.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to IConquest</h1>
+    </header>
+
+    <main>
+        <div class="base">
+            <form id="userForm">
+
+                <div class="mb-3">
+                  <label for="inputEmail" class="form-label"><strong>Username</strong></label>
+                  <input type="text" class="form-control" id="inputUsername" aria-describedby="text" placeholder="Username">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label"><strong>Email address</strong></label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email">
+                  </div>
+    
+                <div class="mb-3">
+                  <label for="inputPassword" class="form-label"><strong>Password</strong></label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+    
+                <div>
+                    <label for="exampleAvatars" class="form-label"><strong>Avatar</strong></label>
+                    <div class="contenedor" >
+                        <div onclick="changeImg1()" id="item1"><img src="../Vista/img/avatar1.png" alt=""></div>
+                        <div onclick="changeImg2()" id="item2"><img src="../Vista/img/avatar2.png" alt=""></div>
+                        <div onclick="changeImg3()" id="item3"><img src="../Vista/img/avatar3.png" alt=""></div>
+                        <div onclick="changeImg4()" id="item4"><img src="../Vista/img/avatar4.png" alt=""></div>
+                        <div onclick="changeImg5()" id="item5"><img src="../Vista/img/avatar5.png" alt=""></div>
+                        <div onclick="changeImg6()" id="item6"><img src="../Vista/img/avatar6.png" alt=""></div>
+                    </div>
+                </div>
+                <div>
+                    <p><strong>Avatar: </strong></p>
+                    <img src="https://us.123rf.com/450wm/blankstock/blankstock1409/blankstock140900061/31369711-signo-de-interrogaci%C3%B3n-signo-icono-s%C3%ADmbolo-de-ayuda-signo-de-preguntas-frecuentes-c%C3%ADrculo-bot%C3%B3n-plan.jpg?ver=6" id="avatar" class="avatar" alt="">
+                </div>
+                <div class="button">
+                    <button type="button" onclick="getInfoForm()" class="btn-lg btn-danger">Save!</button>
+                </div>
+    
+            </form>
+        </div>
+        
+    </main>
+    
+    <footer>
+
+    </footer>
+
+    <script>
+        var form = document.getElementById("userForm");
+
+        function getInfoForm(){
+            var email = document.getElementById("inputEmail").value;
+            var password = document.getElementById("inputPassword").value;
+            var username = document.getElementById("inputUsername").value;
+            var avatar = document.getElementById("avatar").src;
+
+            let usuario = [{email: email, password: password, username: username, avatar: avatar}];
+            
+
+            console.log(usuario[0]);
+            var addEmail = localStorage.setItem("email", usuario[0].email);
+            var addPassword = localStorage.setItem("password", usuario[0].password);
+            var addUsername = localStorage.setItem("username", usuario[0].username);
+            var addAvatar = localStorage.setItem("avatar", usuario[0].avatar);
+
+            valorEmail = localStorage.getItem("email");
+            valorPassword = localStorage.getItem("password");
+            valorUsername = localStorage.getItem("username");
+            valorAvatar = localStorage.getItem("avatar");
+
+            console.log("Se ha almacenado correctamente el correo: " + valorEmail + " la contraseña: " + valorPassword + " el username: " + valorUsername + " y el avatar: " + valorAvatar);
+            reef();
+        }
+
+
+        function changeImg1(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar1.png";
+        }
+        function changeImg2(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar2.png";
+        }
+        function changeImg3(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar3.png";
+        }
+        function changeImg4(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar4.png";
+        }
+        function changeImg5(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar5.png";
+        }
+        function changeImg6(){
+            var userAvatar = document.getElementById("avatar");   
+            userAvatar.src = "../Vista/img/avatar6.png";
+        }
+
+        function reef(){
+
+            if(document.getElementById("inputEmail").value != "" && document.getElementById("inputPassword").value != "" && document.getElementById("inputUsername").value != "" && document.getElementById("avatar").src != "https://us.123rf.com/450wm/blankstock/blankstock1409/blankstock140900061/31369711-signo-de-interrogaci%C3%B3n-signo-icono-s%C3%ADmbolo-de-ayuda-signo-de-preguntas-frecuentes-c%C3%ADrculo-bot%C3%B3n-plan.jpg?ver=6"){
+                alert("Lets Play!");
+                window.location.href = "../Vista/chooseMode.html";
+             }
+            else{
+                alert("Something wrong!");
+            }
+        }
+            
+    </script>
+</body>
+</html>
