@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="iconquest">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/nuevoinicio.zip!/" />
+      <root url="jar://$PROJECT_DIR$/bootstrap-4.0.0.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
